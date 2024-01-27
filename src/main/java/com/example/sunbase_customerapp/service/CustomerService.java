@@ -9,4 +9,5 @@ public interface CustomerService {
     List<Customer> getCustomersList();
     List<Customer> searchByField(String fieldName, String fieldValue);
     void deleteCustomerById(Long customerId);
+    void updateCustomer(Customer updatedCustomer);
 }
