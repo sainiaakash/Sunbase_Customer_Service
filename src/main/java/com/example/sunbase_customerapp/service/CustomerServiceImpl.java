@@ -1,8 +1,7 @@
 package com.example.sunbase_customerapp.service;
 
-import com.example.sunbase_customerapp.entity.Customer;
+import com.example.sunbase_customerapp.model.Customer;
 import com.example.sunbase_customerapp.repository.CustomerRepository;
-import com.example.sunbase_customerapp.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

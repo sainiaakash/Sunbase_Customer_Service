@@ -1,6 +1,6 @@
 package com.example.sunbase_customerapp.repository;
 
-import com.example.sunbase_customerapp.entity.Customer;
+import com.example.sunbase_customerapp.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

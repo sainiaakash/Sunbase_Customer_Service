@@ -1,6 +1,6 @@
 package com.example.sunbase_customerapp.service;
 
-import com.example.sunbase_customerapp.entity.Customer;
+import com.example.sunbase_customerapp.model.Customer;
 
 import java.util.List;
 

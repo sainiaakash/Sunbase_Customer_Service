@@ -1,4 +1,4 @@
-package com.example.sunbase_customerapp.entity;
+package com.example.sunbase_customerapp.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

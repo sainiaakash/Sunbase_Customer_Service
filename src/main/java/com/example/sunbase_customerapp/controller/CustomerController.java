@@ -1,8 +1,10 @@
 package com.example.sunbase_customerapp.controller;
 
-import com.example.sunbase_customerapp.entity.Customer;
+import com.example.sunbase_customerapp.model.Customer;
 import com.example.sunbase_customerapp.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,16 +26,24 @@ public class CustomerController {
     }
 
     @GetMapping("customerList")
-    private List<Customer> getCustomersList(){
-        List<Customer> list = customerService.getCustomersList();
-        return list;
+    private ResponseEntity<List<Customer>> getCustomersList(){
+        List<Customer> customersList = customerService.getCustomersList();
+        if(customersList.isEmpty()){
+            return new ResponseEntity<>((HttpStatus.NOT_FOUND));
+        } else {
+            return new ResponseEntity<>(customersList, HttpStatus.OK);
+        }
     }
 
     @GetMapping("searchByField")
-    private  List<Customer> getCustomerListByField(@RequestParam("searchField") String searchField,
-                                                   @RequestParam("fieldValue") String fieldValue){
-        List<Customer> list = customerService.searchByField(searchField,fieldValue);
-        return list;
+    private ResponseEntity<List<Customer>> getCustomerListByField(@RequestParam("searchField") String searchField,
+                                                                 @RequestParam("fieldValue") String fieldValue){
+        List<Customer> customersList = customerService.searchByField(searchField,fieldValue);
+        if(customersList.isEmpty()){
+            return new ResponseEntity<>((HttpStatus.NOT_FOUND));
+        } else {
+            return new ResponseEntity<>(customersList, HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("delete/{customerId}")
@@ -45,4 +55,5 @@ public class CustomerController {
     private void updateCustomer(@RequestBody Customer updatedCustomer){
         customerService.updateCustomer(updatedCustomer);
     }
+
 }
